@@ -83,7 +83,7 @@ public class BaseClass {
 		(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),TimeUnit.SECONDS);
 		//Launching the URL
 		getDriver().get(prop.getProperty("url"));
-		System.out.print("fsdf");
+		// System.out.print("fsdf");
 	}
 
 	@AfterSuite()
