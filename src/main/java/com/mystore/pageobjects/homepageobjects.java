@@ -10,24 +10,17 @@ import com.mystore.base.BaseClass;
 public class homepageobjects extends BaseClass {
 	
 Action action= new Action();
-// public App app;
 
-
-	
 	@FindBy(xpath="//a[@id='products']")
-	private WebElement productClick;
-	
-	
+	private WebElement productClick;	
 	public homepageobjects() {
 		PageFactory.initElements(getDriver(), this);
 	}
-	
-	
 
-
-
-	public void productClick() {
+	public attributeSet productClick() {
 		action.click(getDriver(), productClick);
+		 
+		return new attributeSet();
 
 		// TODO Auto-generated method stub
 		

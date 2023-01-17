@@ -3,15 +3,16 @@ package com.mystore.testcases;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.mystore.base.BaseClass;
 import com.mystore.pageobjects.LoginPage;
+import com.mystore.pageobjects.attributeSet;
 import com.mystore.pageobjects.homepageobjects;
 
 public class homepageTest extends BaseClass{
 	
     private LoginPage loginPage;
 	public homepageobjects Homepageobjects;
+	public 	attributeSet AttributeSet;
 	
 	@BeforeMethod()
 	public void setup() {
@@ -23,13 +24,12 @@ public class homepageTest extends BaseClass{
 		getDriver().quit();
 	}
 	
-@Test(dataProvider = "credentials", dataProviderClass = com.mystore.dataprovider.DataProviders.class)
-	public void homePage (String uname, String pswd) throws Throwable {
+@Test()
+	public void homePage () throws Throwable {
 	loginPage  = new LoginPage();
-	Homepageobjects = loginPage.login(uname,pswd);
+	Homepageobjects = loginPage.login();
 	Homepageobjects.productClick();
+	AttributeSet = new attributeSet();
 	
-
-	
-	
-}}
+ }
+}

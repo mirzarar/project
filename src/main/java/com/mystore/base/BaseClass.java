@@ -23,11 +23,7 @@ import com.mystore.actiondriver.Action;
 import com.mystore.utility.ExtentManager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-/**
- * @author Hitendra: BaseClass is used to load the config file and Initialize 
- * WebDriver
- *  
- */
+
 public class BaseClass {
 	public static Properties prop;
 
@@ -36,6 +32,7 @@ public class BaseClass {
 
 	//loadConfig method is to load the configuration
 	@BeforeSuite()
+
 	public void loadConfig() {
 	//	ExtentManager.setExtent();
 	//	DOMConfigurator.configure("log4j.xml");
@@ -77,10 +74,10 @@ public class BaseClass {
 		getDriver().manage().deleteAllCookies();
 		//Implicit TimeOuts
 		getDriver().manage().timeouts().implicitlyWait
-		(Integer.parseInt(prop.getProperty("implicitWait")),TimeUnit.SECONDS);
+		(Integer.parseInt(prop.getProperty("implicitWait")),TimeUnit.HOURS);
 		//PageLoad TimeOuts
 		getDriver().manage().timeouts().pageLoadTimeout
-		(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),TimeUnit.SECONDS);
+		(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),TimeUnit.MINUTES);
 		//Launching the URL
 		getDriver().get(prop.getProperty("url"));
 		// System.out.print("fsdf");

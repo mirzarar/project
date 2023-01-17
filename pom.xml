@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>MyStoreProject</groupId>
-	<artifactId>MyStoreProject</artifactId>
+	<artifactId>MyStoreProject</artifactId> 
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
 		<dependency>
@@ -18,7 +18,12 @@
 			<version>7.1.0</version>
 			<scope>compile</scope>
 		</dependency>
-
+<!-- https://mvnrepository.com/artifact/net.sf.jazzy/jazzy -->
+<dependency>
+    <groupId>net.sf.jazzy</groupId>
+    <artifactId>jazzy</artifactId>
+    <version>0.5.2-rtext-1.4.1-2</version>
+</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -49,6 +54,11 @@
 			<artifactId>webdrivermanager</artifactId>
 			<version>4.0.0</version>
 		</dependency>
+		<dependency>
+    <groupId>com.github.javafaker</groupId>
+    <artifactId>javafaker</artifactId>
+    <version>1.0.2</version>
+</dependency>
 
 	</dependencies>
 	<build>
@@ -88,7 +98,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
 	</build>
-
 </project>

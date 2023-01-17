@@ -3,61 +3,135 @@ package com.mystore.pageobjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+import com.github.javafaker.Faker;
 import com.mystore.actiondriver.Action;
 import com.mystore.base.BaseClass;
 
-public class attributeSet extends BaseClass{
-
+public class attributeSet extends BaseClass {
+	
 	Action action= new Action();
-	homepageobjects Homepageobjects;
-	
-	@FindBy(xpath="//span[normalize-space()='Attributes']")
-	private WebElement attributes;
 	
 	
+	Faker faker = new Faker();
+
+		
+	@FindBy(xpath="//span[normalize-space()='Attribute Sets']")
+	private WebElement attributeSetbtn1;
 	
-	 @FindBy(xpath="//a[@id='add-attribute']")
-	 private WebElement addattributes;
 	
-	@FindBy(xpath="//li[@class='opt']")
-	private WebElement attributessetindex;
-	
-	@FindBy(xpath="//li[@class='opt']")
-	private WebElement attributessetindex1;
+	@FindBy(xpath="//span[normalize-space()='Attribute Sets']")
+	private WebElement attributeSetbtn;
 	
 	@FindBy(xpath="//input[@id='name']")
-	private WebElement attributetittle;
+	private WebElement attributeSetname;
 	
-	@FindBy(xpath="//input[@id='description']")
-	private WebElement attributeDescription;
 	
-	@FindBy(xpath="//input[@name='regular_expression']")
-	private WebElement attributeregulr;
+	@FindBy(xpath="//a[@id='add-family']")
+	private WebElement attributeSetbtn3;
 	
-	@FindBy(xpath="//button[@id='pro_attr_create_btn']")
-	private WebElement attributesavebtn;
+	@FindBy(xpath="//button[@id='pro_fam_create_btn']")
+	private WebElement attributeSetsavebtn;
 	
-
+	
 	public attributeSet() {
 		PageFactory.initElements(getDriver(), this);
 	}
-
-	public void att(String atRegulr, String atSavebtn) {
-		
-		action.click(getDriver(), attributes);
-		action.click(getDriver(), addattributes);
-	//	action.JSClick(getDriver(), attributessetindex);
-	//	action.type(attributeDescription, atTittle);
-		action.type(attributeregulr, atRegulr);
-
-		action.type(attributesavebtn, atSavebtn);
-		
-	//	action.JSClick(getDriver(), atSavebtn);
-
-
-
 	
+	public void attSet() {
+		
+		action.click(getDriver(), attributeSetbtn1);
+			
+		action.click(getDriver(), attributeSetbtn);
+				
+		action.click(getDriver(), attributeSetbtn3);
+		
+		action.type(attributeSetname,"000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+				
+	}
+	public void attSet1() {
+		
+		getDriver().navigate().to("https://app.getapimio.com/products/family/create");
+		
+        action.type(attributeSetname, "000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+	}
+	
+	public void attSet2() {
+
+		getDriver().navigate().to("https://app.getapimio.com/products/family/create");
+		
+        action.type(attributeSetname, "000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+	}
+	public void attSet3() {
+
+		
+		getDriver().navigate().to("https://app.getapimio.com/products/family/create");
+		
+        action.type(attributeSetname, "000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+	}
+	public void attSet4() {
+
+		
+		
+		getDriver().navigate().to("https://app.getapimio.com/products/family/create");
+		
+        action.type(attributeSetname, "000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+	}
+	public void attSet5() {
+
+		
+		
+		getDriver().navigate().to("https://app.getapimio.com/products/family/create");
+		
+        action.type(attributeSetname, "000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+		
+	}
+	public void attSet6() {
+
+		getDriver().navigate().to("https://app.getapimio.com/products/family/create");
+		
+        action.type(attributeSetname, "000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+	}
+	public void attSet7() {
+
+		
+		getDriver().navigate().to("https://app.getapimio.com/products/family/create");
+		
+        action.type(attributeSetname, "000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+	}
+	
+	public attribute attSet8() {
+
+		
+		getDriver().navigate().to("https://app.getapimio.com/products/family/create");
+		
+        action.type(attributeSetname, "000"+faker.name().firstName());
+		
+		action.click(getDriver(), attributeSetsavebtn);
+		
+		
+		return new attribute();
+	}
+		 public String getCurrURL() throws Throwable {
+				String attributeSetURL=action.getCurrentURL(getDriver());
+				return attributeSetURL;
+		
+		
 	}
 	
 }

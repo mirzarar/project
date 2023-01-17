@@ -1,9 +1,7 @@
-/**
- * 
- */
 package com.mystore.actiondriver;
 
 import java.io.File;
+
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -29,10 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.mystore.actioninterface.ActionInterface;
 import com.mystore.base.BaseClass;
 
-/**
- * @author Hitendra Verma added on 13th March2019
- *
- */
+
 public class Action extends BaseClass implements ActionInterface {
 
 	@Override
