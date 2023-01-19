@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.mystore.actiondriver.Action;
 import com.mystore.base.BaseClass;
 
-public class ImortmoduleObjects extends BaseClass{
+public class ImortmoduleObjects2 extends BaseClass{
 	
 	
 	public static void setClipBoard(String file) {
@@ -132,18 +132,25 @@ public class ImortmoduleObjects extends BaseClass{
 	@FindBy(xpath="//button[@id='create_template']")
 	private WebElement createnewtemplate;
 	
-	public ImortmoduleObjects() {
+	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]")
+	private WebElement productpage;
+	
+
+	
+	
+	
+	public ImortmoduleObjects2() {
 		PageFactory.initElements(getDriver(), this);
 	}
 	
-public void importmodule() throws InterruptedException, AWTException {
+public void importmodule2() throws InterruptedException, AWTException {
 	
 	action.click(getDriver(), productsbtn);
 	action.click(getDriver(), importbtn);
 	action.click(getDriver(), csv);
 	action.implicitWait(getDriver(), 30000);
 	Thread.sleep(3000);	
-	uploadFile("C:\\Users\\Hp\\xc.csv");
+	uploadFile("C:\\Users\\Hp\\example.csv");
 	Thread.sleep(3000);	
 
 	action.click(getDriver(), nextbtn);
@@ -157,7 +164,124 @@ public void importmodule() throws InterruptedException, AWTException {
 
 	
 	Thread.sleep(3000);	
+	
+	
+	
+	
+	action.JSClick(getDriver(), nextclick);
+	
+	Select selectlanguage = new Select(getDriver().findElement(By.xpath("//div[@id='import_product']//select[@id='version']")));
+	selectlanguage.selectByIndex(1);
+	
+	Select selectstore = new Select(getDriver().findElement(By.xpath("//div[@id='import_product']//select[@id='catalog']")));
+	selectstore.selectByIndex(1);
 
+
+	action.JSClick(getDriver(), templatebtn);
+	action.type(templateinput, "new template");
+	action.JSClick(getDriver(), stratimportbtn);
+	
+	//Boolean Displaypop = getDriver().findElement(By.xpath("//div[@class='col-9 p-0 bold']")).isDisplayed();
+	//To print the value
+//	System.out.println("Popup Displayed   "+ Displaypop);
+	
+	
+	
+	action.JSClick(getDriver(), productpage);
+	
+//	 List<WebElement> inputs = getDriver().findElements(By.xpath("//*[@id='general-tab']//input"));
+//
+//     // Print values of input elements
+//	 for (WebElement inputElement : inputs) {
+//         System.out.println("{" + inputElement.getAttribute("value") + "}");
+	
+	  List<WebElement> inputs = getDriver().findElements(By.xpath("//*[@id='general-tab']//input"));
+    String expectedValues = "{1,Camera 2sku,New Camera,12312123,122,133,144,155,166}";
+    String[] expectedArray = expectedValues.substring(1, expectedValues.length() - 1).split(",");
+    int i = 0;
+    for (WebElement inputElement : inputs) {
+        String actualValue = inputElement.getAttribute("value");
+        if (actualValue.equals(expectedArray[i])) {
+            System.out.println("Input value matches expected value: " + actualValue);
+        } else {
+            System.out.println("Input value does not match expected value: " + actualValue + ", expected: " + expectedArray[i]);
+        }
+        i++;
+    }
+
+  //  List<WebElement> selects = getDriver().findElements(By.xpath("//div[@class='card-body p-3']//select"));
+
+    // Compare values of select elements with a string of values
+//    String expectedValues1 = "{Sony,Jamil,all}";
+//    String[] expectedArray1 = expectedValues1.substring(1, expectedValues1.length()).split(",");
+//    int x = 0;
+//    for (WebElement selectElement : selects) {
+//        String actualValue1 = selectElement.getAttribute("value");
+//        if (actualValue1.equals(expectedArray1[x])) {
+//            System.out.println("Select value matches expected value: " + actualValue1);
+//        } else {
+//            System.out.println("Select value does not match expected value: " + actualValue1 + ", expected: " + expectedArray1[x]);
+//        }
+//        i++;
+//	
+//       
+//    }
+	
+    List<WebElement> option = getDriver().findElements(By.xpath("//div[@class='card-body p-3']//select"));
+//    // Print values of input elements
+	 for (WebElement inputElement : option) {
+       System.out.println("{" + inputElement.getAttribute("html") + "}");
+	
+	
+	
+	
+	 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	
 	Select CSVcolumno1 = new Select(getDriver().findElement(By.xpath("//select[@name='nodes[data][0][from][]']")));
 	CSVcolumno1.selectByIndex(1);
@@ -172,21 +296,21 @@ public void importmodule() throws InterruptedException, AWTException {
 	////2nd selectin
 	
 	Select CSVcolumno2 = new Select(getDriver().findElement(By.xpath("//select[@name='nodes[data][1][from][]']")));
-	CSVcolumno2.selectByVisibleText("SKU");
+	CSVcolumno2.selectByVisibleText("Media");
 	//select [@name="nodes[data][1][with_formula]"]
 	
 	Select formula = new Select(getDriver().findElement(By.xpath("//select[@name='nodes[data][1][with_formula]']")));
-	formula.selectByIndex(1);
+	formula.selectByIndex(0);
 	
-	action.type(separator, "-");
+	//action.type(separator, "-");
 
 	
-	Select c1 = new Select(getDriver().findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[2]/div[1]/select[1]")));
-	c1.selectByVisibleText("SKU");
+	Select c1 = new Select(getDriver().findElement(By.xpath("//select[@name='nodes[data][1][to][]']")));
+	c1.selectByVisibleText("Media");
 	
-	Select c2 = new Select(getDriver().findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/select[1]")));
-	c2.selectByVisibleText("SKU");
-	
+//	Select c2 = new Select(getDriver().findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/select[1]")));
+//	c2.selectByVisibleText("SKU");
+//	
 	Boolean Display1 = getDriver().findElement(By.xpath("//div[@id='add_row']//div[2]//div[1]//div[1]//div[1]//div[1]//*[name()='svg']")).isDisplayed();
 	//To print the value
 	System.out.println("----------Field sucessfully mapped---------   "+ Display1);
@@ -521,6 +645,6 @@ public void importmodule() throws InterruptedException, AWTException {
 	Boolean Displaypop = getDriver().findElement(By.xpath("//div[@class='col-9 p-0 bold']")).isDisplayed();
 	//To print the value
 	System.out.println("Popup Displayed   "+ Displaypop);
-
+*/
 	}
 }
