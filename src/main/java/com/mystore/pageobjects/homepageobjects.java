@@ -18,7 +18,7 @@ Action action= new Action();
 	}
 
 	public attributeSet productClick() {
-		action.click(getDriver(), productClick);
+        getDriver().get("http://phpstack-953281-3321249.cloudwaysapps.com/products");
 		 
 		return new attributeSet();
 

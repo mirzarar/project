@@ -12,10 +12,7 @@ import org.testng.annotations.DataProvider;
 
 import com.mystore.utility.NewExcelLibrary;
 
-/**
- * @author Hitendra
- *
- */
+
 public class DataProviders {
 
 	NewExcelLibrary obj = new NewExcelLibrary();

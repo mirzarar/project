@@ -1,8 +1,13 @@
 package com.mystore.base;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -40,7 +45,7 @@ public class BaseClass {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					System.getProperty("user.dir") + "./Configuration./config.properties");
+					System.getProperty("user.dir") + "./Configuration./Config.properties");
 			prop.load(ip);
 
 		} catch (FileNotFoundException e) {
@@ -72,15 +77,26 @@ public class BaseClass {
 		getDriver().manage().window().maximize();
 		//Delete all the cookies
 		getDriver().manage().deleteAllCookies();
-		//Implicit TimeOuts
-		getDriver().manage().timeouts().implicitlyWait
-		(Integer.parseInt(prop.getProperty("implicitWait")),TimeUnit.HOURS);
-		//PageLoad TimeOuts
-		getDriver().manage().timeouts().pageLoadTimeout
-		(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),TimeUnit.MINUTES);
+//		//Implicit TimeOuts
+//		getDriver().manage().timeouts().implicitlyWait
+//		(Integer.parseInt(prop.getProperty("implicitWait")),TimeUnit.HOURS);
+//		//PageLoad TimeOuts
+//		getDriver().manage().timeouts().pageLoadTimeout
+//		(Integer.parseInt(prop.getProperty("pageLoadTimeOut")),TimeUnit.MINUTES);
 		//Launching the URL
 		getDriver().get(prop.getProperty("url"));
 		// System.out.print("fsdf");
+	}
+	public List<String[]> readCsv(String filePath) throws IOException {
+	    List<String[]> rows = new ArrayList<>();
+	    try (BufferedReader reader = Files.newBufferedReader(Paths.get(filePath))) {
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            String[] fields = line.split(",");
+	            rows.add(fields);
+	        }
+	    }
+	    return rows;
 	}
 
 	@AfterSuite()

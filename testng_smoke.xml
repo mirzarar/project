@@ -4,7 +4,7 @@
 	<test thread-count="5" name="Smoke" >
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>		
-			<class name="com.mystore.testcases.EndtoEndImportmoduleTesting2" />
+			<class name="com.mystore.testcases.NewEndtoEndImportModuleTesting" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

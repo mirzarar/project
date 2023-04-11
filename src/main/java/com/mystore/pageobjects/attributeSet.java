@@ -38,6 +38,8 @@ public class attributeSet extends BaseClass {
 	}
 	
 	public void attSet() {
+        getDriver().get("http://phpstack-953281-3321249.cloudwaysapps.com/products");
+
 		
 		action.click(getDriver(), attributeSetbtn1);
 			

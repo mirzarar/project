@@ -2,6 +2,7 @@ package com.mystore.testcases;
 
 import org.testng.Assert;
 
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -16,7 +17,7 @@ import com.mystore.utility.Log;
 public class attributeSettests extends BaseClass {
 		
 	    private LoginPage loginPage;
-		public homepageobjects Homepageobjects;
+		//public homepageobjects Homepageobjects;
 		public attributeSet AttributeSett;
 		public attribute Attribute;
 		
@@ -34,8 +35,8 @@ public class attributeSettests extends BaseClass {
 		@Test()
 		public void attributeSet() throws Throwable {
 		   loginPage = new LoginPage();
-		   Homepageobjects= loginPage.login();
-		   Homepageobjects.productClick();
+		//   Homepageobjects= loginPage.login();
+	//	   Homepageobjects.productClick();
 		   Thread.sleep(1000);
 		   AttributeSett = new attributeSet();
 		   Attribute = new attribute();

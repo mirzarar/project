@@ -33,7 +33,7 @@ public class LoginPage extends BaseClass {
 	
 	public homepageobjects login() throws Throwable {
 	
-		action.type(userName, "hamza@apimio.com");
+		action.type(userName, "abd848qaisrani@gmail.com");
 		action.type(password, "61ae01ae");
 		action.click(getDriver(), signInBtn);
 		

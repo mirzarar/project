@@ -1,13 +1,13 @@
 package com.mystore.testcases;
 
-import org.testng.Assert;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.mystore.base.BaseClass;
-import com.mystore.pageobjects.ImortmoduleObjects;
 import com.mystore.pageobjects.ImortmoduleObjects2;
+import com.mystore.pageobjects.ImortmoduleObjects4;
 import com.mystore.pageobjects.ImportmoduleVariants;
 import com.mystore.pageobjects.LoginPage;
 import com.mystore.pageobjects.brands;
@@ -15,9 +15,11 @@ import com.mystore.pageobjects.categories;
 import com.mystore.pageobjects.products;
 import com.mystore.pageobjects.store;
 import com.mystore.pageobjects.vendor;
-import com.mystore.utility.Log;
+import java.util.List;
 
-public class EndtoEndImportmoduleTesting2 extends BaseClass{
+
+
+public class EndtoEndimportmoduletesting4 extends BaseClass{
 	
 	LoginPage loginPage;
 	public store Store;
@@ -44,30 +46,15 @@ public class EndtoEndImportmoduleTesting2 extends BaseClass{
 public void loginTest() throws Throwable {
    loginPage = new LoginPage();
    loginPage.login();
- /*  
-   String actualURL=loginPage.getCurrURL();
-   String expectedURL="https://app.getapimio.com/dashboard";
-   Log.info("Verifying if user is able to login");
-   Assert.assertEquals(actualURL, expectedURL);
-   Log.info("Login is Sucess");
-  Log.endTestCase("loginTest");
-  */
-  
-  
-//  imortmoduleObjects2 = new ImortmoduleObjects2();
- // importmodulevariants = new ImportmoduleVariants();
 
-  ImortmoduleObjects2 imortmoduleObjects22 = new ImortmoduleObjects2();
- 
-  
-//  imortmoduleObjects22.importcsv();
-//  imortmoduleObjects22.maping();
-//  imortmoduleObjects22.importmodule2();
-//  imortmoduleObjects22.extractValues();
-//  imortmoduleObjects22.csv();
-// imortmoduleObjects22.importmodule2();
-  
-//  importmodulevariants.importmodule2();
 
+   ImortmoduleObjects2 imortmoduleObjects2 = new ImortmoduleObjects2();
+
+ //  imortmoduleObjects2.importcsv();
+   imortmoduleObjects2.extractAndCompare();
+   
+   
+   
+   
 }
 }
